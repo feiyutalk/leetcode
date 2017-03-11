@@ -14,8 +14,8 @@ Given nums = [2, 7, 11, 15], target = 9, Because nums[0] + nums[1] = 2 + 7 = 9,
 ***
 
 #My Solution
-```java
 
+```java
 public class Solution {
     public int[] twoSum(int[] nums, int target) {
         for(int i=0; i<nums.length-1; i++){
@@ -28,15 +28,14 @@ public class Solution {
     
     }
 }
-
 ```
 ##Analysis
 
 ```
 这里使用了穷举法，也就是遍历了所有解空间，然后得到所求的解, 这应该是最直接的方式了，所以时间复杂度也相对较高。
+```
 ```math
 时间复杂度为 : O(n^2).
-```
 ```
 ***
 #Improve
