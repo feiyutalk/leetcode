@@ -27,7 +27,7 @@ the contiguous subarray [2,3] has the largest product = 6.
 
 ##Solution 分类整合思想
 
-```
+```java
 public class Solution {
     public int maxProduct(int[] nums) {
         if(nums.length == 0 || nums == null)
