@@ -1,11 +1,19 @@
-#Desciption
-```
+#Description
+
+:star2::star2:
+
 Find the contiguous subarray within an array (containing at least one number) which has the largest sum.
 
 For example, given the array [-2,1,-3,4,-1,2,1,-5,4],
 the contiguous subarray [4,-1,2,1] has the largest sum = 6.
-```
+
 ***
+
+##Analysis
+枚举出所有的可能情况，穷举所有的解空间，时间复杂度达到了O(n^3)，这属于比较差的时间复杂度，有优化的空间。对于时间复杂度的总结如下：
+
+![](/images/Maximum_Subarray/时间复杂度总结.png)
+
 ##Solution 1 暴力求解法
 
 ```java
@@ -27,10 +35,6 @@ public class Solution {
     }
 }
 ```
-##Analysis
-枚举出所有的可能情况，穷举所有的解空间，时间复杂度达到了O(n^3)，这属于比较差的时间复杂度，有优化的空间。对于时间复杂度的总结如下：
-
-![](/images/Maximum_Subarray/时间复杂度总结.png)
 
 ***
 ##Improve
