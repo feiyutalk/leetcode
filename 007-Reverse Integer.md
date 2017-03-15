@@ -1,6 +1,6 @@
 # Description
 
-:star2:star2:
+:star2::star2:
 
 Reverse digits of an integer.
 
