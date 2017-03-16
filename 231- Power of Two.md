@@ -7,7 +7,7 @@ Given an integer, write a function to determine if it is a power of two.
 ## Analysis
 我的思路是如果这个数对2取余为1，就不是2的幂。依次类推，让这个数一直除以2，每一次都判断一下得到的数对2取余是否为1，如果是的话就返回false。提交后虽然AC了，但是结果不是很理想。。:sweat:
 
-##Solution
+## Solution
 ```java
 public class Solution {
     public boolean isPowerOfTwo(int n) {
