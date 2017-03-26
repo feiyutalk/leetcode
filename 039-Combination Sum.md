@@ -38,20 +38,4 @@ public class Solution {
 }
 ```
 ***
-enjoy life, coding now! :Dnt n, int k){
-        
-        if(k == 0){
-            ans.add(new ArrayList(a));
-            return;
-        }
-        
-        for(int i=n; i>=1; i--){
-            a.add(i);
-            recCombine(ans, a, i-1, k-1);
-            a.remove(new Integer(i));
-        }
-    }
-}
-```
-***
-enjoy life, coding now! :D
+enjoy life, coding now! :D
