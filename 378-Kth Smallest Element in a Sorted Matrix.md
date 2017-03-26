@@ -1,14 +1,14 @@
-#Description
+# Description
 
 :star2::star2:
 
 ![](/images/Kth_Smallest_Element_In_a_Sorted_Matrix.png)
 
 ***
-##Analysis
+## Analysis
 感觉这道题目难度非常大，虽然用了二分的框架，但是里面的边界很难把握，很容易出错。
 
-##Solution 负相关的二分求解
+## Solution 负相关的二分求解
 
 ```java
 public class Solution {
@@ -50,18 +50,8 @@ public class Solution {
         return ans;
     }
 }
+
 ```
 ***
-enjoy life, coding now! :D now! :D           if(guess(mid, nums, m)){
-                ans = (int)mid;
-                high = mid;
-            }else{
-                low = mid + 1;
-            }
-        }
-        return ans;
-    }
-}
-```
-***
-enjoy life, coding now! :D now! :D
+enjoy life, coding now! :D
+ now! :D
