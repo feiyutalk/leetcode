@@ -48,42 +48,4 @@ public class Solution {
 }
 ```
 ***
-enjoy life, coding now! :Dln(pathNum);
-                find = true;
-                finish.add(1);
-                return ;
-            }
-        }
-        
-        inorder(root.left, sum, pathNum, find, finish);
-        inorder(root.right, sum, pathNum, find, finish);
-        pathNum.remove(new Integer(root.val));
-    }
-    
-    public int getSum(final List<Integer> pathNum){
-        int sum = 0;
-        for(int num : pathNum){
-            sum += num;
-        }
-        return sum;
-    }
-}
-```
-
-## Improve
-当进一步思考的时候，发现，这道题目确实可以转化为递归的问题，不同的子树对应不同的sum，这样问题就变得更加简单了
-
-## Solution 递归求解
-```java
-public class Solution {
-    public boolean hasPathSum(TreeNode root, int sum) {
-        if(root == null) return false;
-    
-        if(root.left == null && root.right == null && sum - root.val == 0) return true;
-    
-        return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);
-    }
-}
-```
-***
-enjoy life, coding now! :D
+enjoy life, coding now! :D
