@@ -1,6 +1,6 @@
 # Description
 
-:star2::star2::star2:
+:star2::star2:
 
 ![](/images/SubsetsII.png)
 
@@ -57,4 +57,4 @@ public class Solution {
 }
 ```
 ***
-enjoy life, coding now! :D
+enjoy life, coding now! :Dow! :D
