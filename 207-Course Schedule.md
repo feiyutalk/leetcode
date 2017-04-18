@@ -2,7 +2,7 @@
 
 :star2::star2:
 
-![](/images/Course Schedule.png)
+![](/images/Course_Schedule.png)
 
 ***
 ## Analysis
