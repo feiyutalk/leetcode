@@ -7,7 +7,7 @@
 ***
 ## Analysis
 这道题目还是递归的问题，求解集合的问题难点，在于如何去掉重复计算，去掉重复计算的方法在于如果相邻两个是一样的元素，比如 ..2, 2... 那么(选,不选) (不选,选) 这样的情况下是有重复的，我们只要在算法中过滤掉这两种情况中的一种情况就可以了。递归的模板没有变化。我们必须往递归的结构上去构造，包括此题的先排序，以及定义choose数组。
-## Solution 负相关的二分求解
+## Solution 递归求解+去重技巧
 
 ```java
 public class Solution {
@@ -57,4 +57,5 @@ public class Solution {
 }
 ```
 ***
-enjoy life, coding now! :Dow! :D
+enjoy life, coding now! :D
+ow! :D
