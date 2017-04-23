@@ -1,8 +1,8 @@
-#Description
+# Description
 Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
-##Expample:
+## Expample:
 
 >>>
 
@@ -13,7 +13,7 @@ Given nums = [2, 7, 11, 15], target = 9, Because nums[0] + nums[1] = 2 + 7 = 9,
 
 ***
 
-#My Solution
+# My Solution
 
 ```java
 public class Solution {
@@ -29,7 +29,7 @@ public class Solution {
     }
 }
 ```
-##Analysis
+## Analysis
 
 ```
 这里使用了穷举法，也就是遍历了所有解空间，然后得到所求的解, 这应该是最直接的方式了，所以时间复杂度也相对较高。
@@ -38,7 +38,7 @@ public class Solution {
 时间复杂度为 : O(n^2).
 ```
 ***
-#Improve
+# Improve
 
 ```
 这里的改进方式主要的思想是， 时空互换 ，通过建立一个HashTable或者HashMap来存储数组中的值以及其对应的位置，
@@ -48,7 +48,7 @@ public class Solution {
 该搜索的时间复杂度为O(1)，所以我们只需要一次遍历数组，每次遍历的时候去搜索target - nums[j]即可。
 
 ```
-##Best Solution
+## Best Solution
 
 ```java
 
