@@ -36,7 +36,7 @@ public class Solution {
 ***
 我们先来看看上一种答案提交后的排名结果：
 
-![](/231- Power of Two/Power_of_Two.png)
+![](/231- Power_of_Two/Power_of_Two.png)
 
 弱爆了有没有。。。。:no_mouth:
 

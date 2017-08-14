@@ -31,7 +31,7 @@ If no valid conversion could be performed, a zero value is returned. If the corr
 
   字符串转化为数值，这道题:sob:，边界条件真是。。。。。。啊。。。。。。花了我一个多小时，估计提交了20多次了。。。。本身题目不算难，就是遍历字符串中的每个字符，可以用charAt和计数器一起使用实现遍历字符串。关于正负号，可以先默认为正号，然后通过读取第一个字符是否为'+','-'来改变正负号，这里正负号可以用1或者-1来实现正负号，然后就是读取一个数字，然后乘以10，这样做了。还有，就是要考虑是否越界的问题，我在这里是遍历的过程中就判断，因为我之前试过了，在遍历完再判断，会出现input = 9223372036854775809; 也就是long的最大值也越了。。。尴尬:weary:.最后附上结果，应该还算可以吧:
 
-![](/008-String to Integer (atoi)/StringToInteger.png)
+![](/008-String_to_Integer(atoi)/StringToInteger.png)
 
 ```java
 public class Solution {
