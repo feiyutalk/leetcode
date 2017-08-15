@@ -1,5 +1,4 @@
-660. Remove 9
-=============
+# 660. Remove 9
 
 Description
 -----------
