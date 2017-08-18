@@ -69,30 +69,34 @@ No such pair of words.
   **位图原理**如下:
 ![](/318-Maximum_Product_of_Word_Lengths/bitmap原理.png)
 
-	class Solution {
-	    public int maxProduct(String[] words) {
-	        if(words == null || words.length == 0)
-	            return 0;
-	        int result = 0;
-	        int[] bitmap = new int[words.length];
-	        
-	        //initialize bitmap
-	        for(int i=0; i<words.length; i++){
-	            for(int j=0; j<words[i].length(); j++){
-	                bitmap[i] |= (1<<(words[i].charAt(j) - 'a'));
-	            }
-	        }
-	        
-	        for(int i=0; i<words.length-1; i++){
-	            for(int j=i+1; j<words.length; j++){
-	                if((bitmap[i] & bitmap[j]) == 0){
-	                    result = Math.max(result, words[i].length() * words[j].length());
-	                } 
-	            }
-	        }
-	        return result;
+```
+
+class Solution {
+    public int maxProduct(String[] words) {
+	if(words == null || words.length == 0)
+	    return 0;
+	int result = 0;
+	int[] bitmap = new int[words.length];
+
+	//initialize bitmap
+	for(int i=0; i<words.length; i++){
+	    for(int j=0; j<words[i].length(); j++){
+		bitmap[i] |= (1<<(words[i].charAt(j) - 'a'));
 	    }
 	}
+
+	for(int i=0; i<words.length-1; i++){
+	    for(int j=i+1; j<words.length; j++){
+		if((bitmap[i] & bitmap[j]) == 0){
+		    result = Math.max(result, words[i].length() * words[j].length());
+		} 
+	    }
+	}
+	return result;
+    }
+}
+
+```
 ***
 
 **enjoy life, coding now! :D**
