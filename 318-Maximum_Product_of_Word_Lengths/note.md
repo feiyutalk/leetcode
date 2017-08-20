@@ -33,31 +33,34 @@ No such pair of words.
 ## Solution 1 暴力求解法
   这道题目涉及两个子算法，第一个是需要去判断两个字符串是否包含有共同的字符。第二个子算法，是选出没有包含公共字符并且字符串长度乘积之和最大。
 
-	class Solution {
-	    public int maxProduct(String[] words) {
-	        if(words == null || words.length == 0)
-	            return 0;
-	        int result = 0;
-	        for(int i=0; i<words.length-1; i++){
-	            for(int j=0; j<words.length; j++){
-	                if(!containsCL(words[i], words[j])){
-	                    result = Math.max(result, words[i].length()*words[j].length());
-	                }
-	            }
-	        }
-	        return result;
-	    }
-	    
-	    public boolean containsCL(String word1, String word2){
-	        for(Character c1 : word1.toCharArray()){
-	            for(Character c2 : word2.toCharArray()){
-	                if(c1 == c2)
-	                    return true;
-	            }
-	        }
-	        return false;
+```java
+
+class Solution {
+    public int maxProduct(String[] words) {
+	if(words == null || words.length == 0)
+	    return 0;
+	int result = 0;
+	for(int i=0; i<words.length-1; i++){
+	    for(int j=0; j<words.length; j++){
+		if(!containsCL(words[i], words[j])){
+		    result = Math.max(result, words[i].length()*words[j].length());
+		}
 	    }
 	}
+	return result;
+    }
+
+    public boolean containsCL(String word1, String word2){
+	for(Character c1 : word1.toCharArray()){
+	    for(Character c2 : word2.toCharArray()){
+		if(c1 == c2)
+		    return true;
+	    }
+	}
+	return false;
+    }
+}
+```
 
 这个算法在LeetCode提交的时候出现了超时，这个算法的时间复杂度为O(n^4),显然需要优化。优化的角度在哪里呢？我们的算法中containsCL()的复杂度是O(n^2)，需要被执行O(n^2)次，所有我们优化的角度要么在containsCL()这个子算法中，要么在操作的个数上。我们发现，要求出两个字符串长度乘积的最大值，那么二重循环可能避免不了，所以我们把注意力放在判断两个字符串是否有公共的字符的子算法中！
 
@@ -69,30 +72,34 @@ No such pair of words.
   **位图原理**如下:
 ![](/318-Maximum_Product_of_Word_Lengths/bitmap原理.png)
 
-	class Solution {
-	    public int maxProduct(String[] words) {
-	        if(words == null || words.length == 0)
-	            return 0;
-	        int result = 0;
-	        int[] bitmap = new int[words.length];
-	        
-	        //initialize bitmap
-	        for(int i=0; i<words.length; i++){
-	            for(int j=0; j<words[i].length(); j++){
-	                bitmap[i] |= (1<<(words[i].charAt(j) - 'a'));
-	            }
-	        }
-	        
-	        for(int i=0; i<words.length-1; i++){
-	            for(int j=i+1; j<words.length; j++){
-	                if((bitmap[i] & bitmap[j]) == 0){
-	                    result = Math.max(result, words[i].length() * words[j].length());
-	                } 
-	            }
-	        }
-	        return result;
+```java
+
+class Solution {
+    public int maxProduct(String[] words) {
+	if(words == null || words.length == 0)
+	    return 0;
+	int result = 0;
+	int[] bitmap = new int[words.length];
+
+	//initialize bitmap
+	for(int i=0; i<words.length; i++){
+	    for(int j=0; j<words[i].length(); j++){
+		bitmap[i] |= (1<<(words[i].charAt(j) - 'a'));
 	    }
 	}
+
+	for(int i=0; i<words.length-1; i++){
+	    for(int j=i+1; j<words.length; j++){
+		if((bitmap[i] & bitmap[j]) == 0){
+		    result = Math.max(result, words[i].length() * words[j].length());
+		} 
+	    }
+	}
+	return result;
+    }
+}
+
+```
 ***
 
 **enjoy life, coding now! :D**
