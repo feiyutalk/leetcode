@@ -62,7 +62,7 @@ public class Solution {
 
 最后看一下结果，不好不坏吧，想不到优化的空间了：
 
-![](/002-Add_Two_Numbers/Add_Two_Numbers/result.png)
+![](/002-Add_Two_Numbers/result.png)
 
 ***
 
