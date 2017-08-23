@@ -1,2 +1,3 @@
-# leetcode [![language](https://img.shields.io/badge/language-Java-green.svg)](https://img.shields.io/badge/language-Java-green.svg) 
+# LeetCode [![language](https://img.shields.io/badge/language-Java-green.svg)](https://img.shields.io/badge/language-Java-green.svg) 
 
+This repo collect LeetCode's problems solutions and summary.  I will give different solutions and analysis to every problem.
