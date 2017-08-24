@@ -49,7 +49,7 @@ public class Solution {
 
   这里的改进方式主要的思想是， 时空互换 ，通过建立一个HashTable或者HashMap来存储数组中的值以及其对应的位置，也就是说将数组元素的值当做Key,位置当做Value。相应的，我们对问题进行转化，加法转化为减法，什么意思呢，求解nums[i] + num[j] == target, 满足这个条件的 i j。我们转化为 nums[i] = target - nums[j]，也就是我们固定一个值 nums[j]， 通过条件联立（减法），去求解另一个值，而减法得到的值正好可以作为Hash的Key去搜索，该搜索的时间复杂度为O(1)，所以我们只需要一次遍历数组，每次遍历的时候去搜索target - nums[j]即可。
 
-![](/001-Two_Sum/Two_Sum_Hash.png)
+![](./images/Two_Sum_Hash.png)
 
 ```java
 
