@@ -34,3 +34,9 @@ class Solution {
 }
 ```
 
+AC
+
+```java
+
+```
+
