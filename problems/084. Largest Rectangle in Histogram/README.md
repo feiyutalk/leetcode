@@ -1,44 +1,44 @@
 # 084. Largest Rectangle in Histogram 
 
-# Description
+## Solution 1 暴力求解[TLE]
 
-Given *n* non-negative integers representing the histogram's bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.
-
-![](https://leetcode.com/static/images/problemset/histogram.png)
-
-Above is a histogram where width of each bar is 1, given height = `[2,1,5,6,2,3]`.
-
-![](https://leetcode.com/static/images/problemset/histogram_area.png)
-
-The largest rectangle is shown in the shaded area, which has area = `10` unit.
-
-For example,
-Given heights = `[2,1,5,6,2,3]`,
-return `10`.
-
-# Solution
-
-如果只是用遍历的方法来求解这道题的话，应该还是比较简单的。难度就在于不知道这道题可以用暴力遍历的方式来求解，没有绕过那个弯子。实际上是可以用遍历来求解的，我们可以每个长方形，对于每个长方形，我们遍历求解出，以该长方形为所围成面积的最右面，向前遍历可能的所有情况。
-
-在向前遍历的时候，需要记录下遍历到的最小的高度，因为所围成的面积需要以该最小的高度作为面积的高度，并记录每次遍历得到的矩形的面积。
+直方图中可能构成多个矩形，要求解出这些矩形中最大的面积值，那么最简单、最直接的想法就是遍历所有的矩形，然后比较每个矩形的面积值，得出最大值。问题在于这道题目怎么遍历所有的矩形呢？方式就是遍历输入中每个下标对应的矩形，以该矩形为最右侧构成的所有面积。然后求得所有面积中的最大值。依次遍历所有的输入矩形，就可以得到最终的结果，这种做法比较简单，直接，但是提交的时候会超时。
 
 ```java
 class Solution {
     public int largestRectangleArea(int[] heights) {
-        //boundary condition
-        if(heights == null || heights.length == 0){
+        if(heights == null || heights.length == 0)
             return 0;
-        }
-        //normal condition
         int max = 0;
         for(int i=0; i<heights.length; i++){
-            if(i == heights.length-1 || heights[i] > heights[i+1]){
-                int minHeight = heights[i];
-                for(int j=i; j>=0; j--){
-                    minHeight = Math.min(minHeight, heights[j]);
-                    max = Math.max(max, minHeight * (i-j+1));
-                }
+            int minHeight = heights[i];
+            for(int j=i; j>=0; j--){ //底的宽度为 i-j+1
+                minHeight = Math.min(minHeight, heights[j]);
+                max = Math.max(max, minHeight*(i-j+1)); 
             }
+        }
+        return max;
+    }
+}
+```
+
+## Solution 2 优化枚举[AC]
+
+我们需要对算法进行优化，减少没必要的搜索开销，仔细思考会发现一个规律。如果`heights[i] > heights[i+1]`，我不需要遍历以`heights[i]`为最右侧所构成的所有矩形，因为以`heights[i+1]`为最右侧所构成的所有矩形肯定会大于前者，因此，我们可以减少很多时间开销。优化后的代码可以被AC。
+
+```java
+class Solution {
+    public int largestRectangleArea(int[] heights) {
+        if(heights == null || heights.length == 0)
+            return 0;
+        int max = 0;
+        for(int i=0; i<heights.length; i++){
+            int minHeight = heights[i];
+            if(i == heights.length-1 || heights[i] > heights[i+1])
+                for(int j=i; j>=0; j--){ //底的宽度为 i-j+1
+                    minHeight = Math.min(minHeight, heights[j]);
+                    max = Math.max(max, minHeight*(i-j+1)); 
+                }
         }
         return max;
     }
