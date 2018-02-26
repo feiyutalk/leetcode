@@ -4,7 +4,7 @@
 
 $max(prices[j] - prices[i]), for every i and j such that j > i$
 
-## #1 暴力求解法 [Time Limit Exceeded]
+## #1 暴力求解法 [TLE]
 
 ```java
 public class Solution {
@@ -35,7 +35,7 @@ public class Solution {
 
 ![](https://leetcode.com/media/original_images/121_profit_graph.png)
 
-我们可以通过两个变量来找到最底点后面的最高点。
+我们通过一个变量来记录目前为止最小的价格，每遍历到一个值，判断该值是否比当前最小值来得小，如果是的话， 就更新最小值；否则， 就更新收益。
 
 ```java
 public class Solution {
