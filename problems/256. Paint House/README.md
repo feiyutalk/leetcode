@@ -1,5 +1,7 @@
 # 256. Paint House
 
+## #1 动态规划[AC]
+
 ```java
 class Solution {
     public int minCost(int[][] costs) {
