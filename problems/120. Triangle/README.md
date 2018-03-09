@@ -1,5 +1,7 @@
 # 120. Triangle
 
+## #1 动态规划[AC]
+
 ```java
 class Solution {
     public int minimumTotal(List<List<Integer>> triangle) {
