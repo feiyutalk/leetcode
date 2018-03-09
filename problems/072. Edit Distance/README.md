@@ -1,6 +1,6 @@
 # 072. Edit Distance
 
-## Solution 1 动态规划
+## #1 动态规划(AC)
 
 编辑距离在自然语言处理中是非常有用的一个概念，当时我在算法交流会上也讲过这个话题，大家可以先去看一下当时我的笔记以及ppt:[最小编辑距离](https://github.com/conghuaicai/happy-algorithms/blob/master/%E7%AC%AC01%E6%9C%9F/%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%9C%80%E5%B0%8F%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB%E7%AE%97%E6%B3%95.md) 
 
@@ -35,3 +35,7 @@ class Solution {
 }
 ```
 
+#### 复杂性分析：
+
+- **时间复杂性：**$O(nm)$
+- **空间复杂性：**$O(nm)$
