@@ -1,57 +1,90 @@
 # 322. Coin Change
-## Description
 
-```
-Difficulty: Medium
-```
+## #1 递归[TLE]
 
-You are given coins of different denominations and a total amount of money amount. Write a function to compute the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.
-
-Example 1:
-
-coins = [1, 2, 5], amount = 11
-
-return 3 (11 = 5 + 5 + 1)
-
-Example 2:
-
-coins = [2], amount = 3
-
-return -1.
-## Solution 1 动态规划
-  动态规划的典型模式。在求解动态规划的时候，我们一般需要一个全局的结果数组。根据不同的题目背景，我们需要修改不不同的判断因子，但是整体的动态规划的模式是不会有变化的。
-
-  我们做动态规划的时候，通过就是利用未知来推已知，这就意味着将未知的问题转化为已知问题，但是！！！！未知转化成已知的时候，往往有多个转化的路径！我们再做当前未知问题的时候，需要考虑的不仅仅只是转化，我们还需要注意在多个路径之间做比较！
+该问题可以形式化的表示为: $min_x \sum_{i=0}^{n-1}x_i, subject to \sum_{i=0}^{n-1}x_{i}*c_{i}=S$，我们可以暴力求解该问题，枚举出满足上述条件的所有$[x_0…x_{n-1}]$集合，并计算每个集合的硬币数量，然后返回最小的那个。
 
 ```java
+public class Solution {    
 
-public class Solution {
     public int coinChange(int[] coins, int amount) {
-        //我们发现当前的amount可以看成是之前的已知的amount的和！
-        //先考虑异常
-        if(coins == null || coins.length == 0 || amount <= 0)
+        return coinChange(0, coins, amount);
+    }
+
+    private int coinChange(int idxCoin, int[] coins, int amount) {
+        if (amount == 0)
             return 0;
-        //动态规划  result : 1 ~ amount; 一个结果
-        /*
-        i = 11   11 = 1 + 10 ， 2 + 9 ， 3 + 8 ...
-        
-        */
-        int[] minNumber = new int[amount+1];
-        for(int i=1; i<= amount; i++){
-            minNumber[i] = Integer.MAX_VALUE;
-            for(int j=0; j<coins.length; j++){
-                if(coins[j]<=i && minNumber[i - coins[j]] != Integer.MAX_VALUE){
-                    minNumber[i] = Math.min(minNumber[i], 1 + minNumber[i - coins[j]]);
-                }
-            }
+        if (idxCoin < coins.length && amount > 0) {
+            int maxVal = amount/coins[idxCoin];
+            int minCost = Integer.MAX_VALUE;
+            for (int x = 0; x <= maxVal; x++) {
+                if (amount >= x * coins[idxCoin]) {
+                    int res = coinChange(idxCoin + 1, coins, amount - x * coins[idxCoin]);
+                    if (res != -1)
+                        minCost = Math.min(minCost, res + x);
+                }                    
+            }           
+            return (minCost == Integer.MAX_VALUE)? -1: minCost;
+        }        
+        return -1;
+    }  
+}
+```
+
+## #2 递归+缓存[AC]
+
+首先我们作如下定义:
+
+>F(S) - 使用$[c_0…c_{n-1}]$对数值S进行找零所需要的最小硬币数量
+
+我们可以发现，经过这样的定义之后，该问题有最优子结构，这是解决动态规划问题的关键。换句话说，原问题的最优解可以由其子问题的最优解构造出来。但是，我们怎么将原问题拆解成子问题？我们作如下拆解:$F(S)=F(S-C)+1$，但是我们并不知道最后一个硬币的数值为多少，我们需要去枚举所有的可能，然后选择最小的。
+
+![](https://leetcode.com/media/original_images/322_coin_change_tree.png)
+
+```java
+public class Solution {
+
+    public int coinChange(int[] coins, int amount) {        
+        if (amount < 1) return 0;
+        return coinChange(coins, amount, new int[amount]);
+    }
+
+    private int coinChange(int[] coins, int rem, int[] count) {
+        if (rem < 0) return -1;
+        if (rem == 0) return 0;
+        if (count[rem - 1] != 0) return count[rem - 1];
+        int min = Integer.MAX_VALUE;
+        for (int coin : coins) {
+            int res = coinChange(coins, rem - coin, count);
+            if (res >= 0 && res < min)
+                min = 1 + res;
         }
-        if(minNumber[amount] == Integer.MAX_VALUE)
-            return -1;
-        return minNumber[amount];
+        count[rem - 1] = (min == Integer.MAX_VALUE) ? -1 : min;
+        return count[rem - 1];
     }
 }
 ```
 
-***
+## #3 动态规划[AC]
+ ![](https://leetcode.com/media/original_images/322_coin_change_table.png)
 
-**enjoy life, coding now! :D**
+```java
+public class Solution {
+    public int coinChange(int[] coins, int amount) {
+        int max = amount + 1;             
+        int[] dp = new int[amount + 1];  
+        Arrays.fill(dp, max);  
+        dp[0] = 0;   
+        for (int i = 1; i <= amount; i++) {
+            for (int j = 0; j < coins.length; j++) {
+                if (coins[j] <= i) {
+                    dp[i] = Math.min(dp[i], dp[i - coins[j]] + 1);
+                }
+            }
+        }
+        return dp[amount] > amount ? -1 : dp[amount];
+    }
+}
+```
+
+
