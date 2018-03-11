@@ -1,5 +1,7 @@
 # 55. Jump Game
 
+## #1 贪心[AC]
+
 ```java
 class Solution {
     public boolean canJump(int[] nums) {
