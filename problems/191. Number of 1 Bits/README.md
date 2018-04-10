@@ -1,25 +1,7 @@
 # 191. Number of 1 Bits
 
-## Description
-
-```
-Difficulty: Easy
-Total Accepted:157.3K
-Total Submissions:397.5K
-Contributor: LeetCode
-```
-
-Write a function that takes an unsigned integer and returns the number of ’1' bits it has (also known as the Hamming weight).
-
-For example, the 32-bit integer ’11' has binary representation 00000000000000000000000000001011, so the function should return 3.
-
-**Credits:**
-Special thanks to @ts for adding this problem and creating all test cases.
-
-***
-
-## Solution1
-  这道题才彻底把n&(n-1)这个二进制操作的技巧理解清楚，这个技巧的本质是消除最右边的那个1，利用这个技巧可以解决一系列的问题。比如数1问题，判断2的幂等。这是一类的题型，该类题型首先要抓住二进制特点，用二进制的角度看待数字，然后用该技巧去消除最右边的那个1，然后就能够得到我们想要的答案。
+## #1 n&(n-1)[AC]
+这道题才彻底把n&(n-1)这个二进制操作的技巧理解清楚，这个技巧的本质是消除最右边的那个1，利用这个技巧可以解决一系列的问题。比如数1问题，判断2的幂等。这是一类的题型，该类题型首先要抓住二进制特点，用二进制的角度看待数字，然后用该技巧去消除最右边的那个1，然后就能够得到我们想要的答案。
 
 ```java
 public class Solution {
@@ -38,7 +20,7 @@ public class Solution {
 }
 ```
 
-## Solution2
+## #2 计数[AC]
   我们还有其他的想法吗？关于数1的问题，可以把数值当做一串的0,1串，每次我们都对最后一个位进行判断，如果是1，则计数。然后右移一位，如此，直到为0为止。
 
 ```java
@@ -55,6 +37,4 @@ public class Solution {
 }
 ```
 
-***
 
-**enjoy life, coding now! :D**
