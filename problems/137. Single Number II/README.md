@@ -22,5 +22,24 @@ class Solution {
 }
 ```
 
+## #2 位操作
+
+位操作的难度非常大，不用太纠结这种解法。
+
+```java
+class Solution {
+    public int singleNumber(int[] nums) {
+        int ones = 0, twos = 0;
+        for(int i=0; i<nums.length; i++){
+            ones = (ones ^ nums[i]) & ~twos;
+            twos = (twos ^ nums[i]) & ~ones;
+        }
+        return ones;
+    }
+}
+```
+
+
+
 
 
