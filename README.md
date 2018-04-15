@@ -16,7 +16,7 @@
 <h4 align="center">
    持续更新:rocket:多种解法:jack_o_lantern:力求思路清晰
   <br><br>
-  **Algorithms + Data Structures = Programs**
+  Algorithms + Data Structures = Programs
 </h4>
 
 ## 快速导航
