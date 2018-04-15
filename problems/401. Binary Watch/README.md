@@ -1,5 +1,13 @@
 # 401. Binary Watch
 
+## #1 暴力搜索[AC]
+
+### 思路
+
+我们遍历所有的可能的表示方式，总共有$12*60$种，对于每一种表示方式，判断其位数之和是否等于给定的`num`，如果是的话就有效，将其加入到结果中，否则无效。
+
+### 算法
+
 ```java
 class Solution {
     public List<String> readBinaryWatch(int num) {
@@ -16,4 +24,9 @@ class Solution {
     }
 }
 ```
+
+### 复杂度分析：
+
+- 时间复杂度：$O(12*60*32)$
+- 空间复杂度：$O(1)$
 
