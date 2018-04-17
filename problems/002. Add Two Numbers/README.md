@@ -1,29 +1,11 @@
 # 2. Add Two Numbers
 
-## Description
+## #1 合并链表[AC]
+### 思路
 
-```
-Difficulty: Medium
-Total Accepted:326.8K
-Total Submissions:1.2M
-Contributor: LeetCode
-```
+这是链表相加的问题，两个链表相加本身是一个简单的问题，但是，这题进行了扩展，就是相加的过程要考虑进位的问题，但是相加最多进位1，所以问题也不是那么难，只要在相加的时候把进位值加上，然后记得算下一次相加的进位就可以了，当然，常见的细节，比如链表为空之类的点，还是要想清楚的，这个做多了就有感觉了，不是什么难点，相对来说，本题虽然是中级题目，但是我觉得算是中级里面比较简单的题目了。
 
-You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
-
-You may assume the two numbers do not contain any leading zero, except the number 0 itself.
-
-**Expample:**
-
-```
-Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
-Output: 7 -> 0 -> 8
-```
-
-***
-
-## Solution 1
-  这是链表相加的问题，两个链表相加本身是一个简单的问题，但是，这题进行了扩展，就是相加的过程要考虑进位的问题，但是相加最多进位1，所以问题也不是那么难，只要在相加的时候把进位值加上，然后记得算下一次相加的进位就可以了，当然，常见的细节，比如链表为空之类的点，还是要想清楚的，这个做多了就有感觉了，不是什么难点，相对来说，本题虽然是中级题目，但是我觉得算是中级里面比较简单的题目了。还有，用Java写链表好不习惯，怀念考研那会用C指针写链表的情景......
+### 算法
 
 ```java
 /**
@@ -60,11 +42,7 @@ public class Solution {
 }
 ```
 
-最后看一下结果，不好不坏吧，想不到优化的空间了：
+### 复杂度分析：
 
-![](.images/result.png)
-
-***
-
-**enjoy life, coding now! :D**
-
+- 时间复杂度：$O(m)$
+- 空间复杂度：$O(m)$，这个复杂度可以不需要，借用输入链表作为存储空间，但是程序写起来会稍微麻烦一点。
