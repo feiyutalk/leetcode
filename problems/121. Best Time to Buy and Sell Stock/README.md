@@ -2,7 +2,7 @@
 
 我们需要在数组中，查找到两个数值的最大差值，而且需要满足第二个数值大于第一个数值。我们可以形式化为如下的数学表达式:
 
-$max(prices[j] - prices[i]), for every i and j such that j > i$
+$\text{max(prices[j] - prices[i]), for every i and j such that j > i}$
 
 ## #1 暴力求解法 [TLE]
 
