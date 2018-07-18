@@ -18,7 +18,7 @@ return its level order traversal as:
   [15,7]
 ]
 ```
-#1 非递归[AC]
+# 1 非递归[AC]
 ```java
 /**
  * Definition for a binary tree node.
