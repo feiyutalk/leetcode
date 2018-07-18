@@ -1,9 +1,9 @@
 # 111. Minimum Depth of Binary Tree
-Given a binary tree, find its minimum depth.
-The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.
-Note: A leaf is a node with no children.
-Example:
-Given binary tree [3,9,20,null,null,15,7],
+Given a binary tree, find its minimum depth.</br>
+The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.</br>
+Note: A leaf is a node with no children.</br>
+Example:</br>
+Given binary tree [3,9,20,null,null,15,7]</br>
 ```
     3
    / \
