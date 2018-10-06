@@ -1,12 +1,6 @@
 # 14. Longest Common Prefix
-## Description
 
-```
-Difficulty: Easy
-```
-
-Write a function to find the longest common prefix string amongst an array of strings.
-## Solution 1
+##  #1
 题目非常直观，只需要去遍历每个字符串中的每个字符即可，遇到不全一样的就退出。
 
 ```java
@@ -35,6 +29,3 @@ class Solution {
 }
 ```
 
-***
-
-**enjoy life, coding now! :D**
