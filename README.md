@@ -1,14 +1,14 @@
 <h1 align="center">
   <br>
   <a href="https://github.com/conghuaicai/leetcode">
-  <img src="http://p6sh0jwf6.bkt.clouddn.com/2018-04-10-035523.jpg" width="400"></a>
+  <img src="https://media-1253434227.cos.ap-chengdu.myqcloud.com/2018-04-10-035523.jpg" width="400"></a>
   <br>
   LeetCode 解题报告
   <br>
 </h1>
 
 <div align="center">
-
+√
 [![language](https://img.shields.io/badge/language-Java-green.svg)](https://img.shields.io/badge/language-Java-green.svg)
 
 </div>
